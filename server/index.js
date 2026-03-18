@@ -77,9 +77,15 @@ mongoose
     console.log('✅ MongoDB connected');
     // One-off name update
     const User = require('./models/User');
+    const Subject = require('./models/Subject');
+    
     await User.findOneAndUpdate({ email: 'user1@example.com' }, { name: 'Prathana' });
     await User.findOneAndUpdate({ email: 'user2@example.com' }, { name: 'Nitiksha' });
-    console.log('✅ Student names updated to Prathana and Nitiksha');
+    
+    await Subject.findOneAndUpdate({ name: 'Corporate & Other Laws' }, { name: 'Laws' });
+    await Subject.findOneAndUpdate({ name: 'Cost & Management Accounting' }, { name: 'GST' });
+    
+    console.log('✅ Student names and Subject names updated');
   })
   .catch((err) => {
     console.error('❌ CRITICAL: MongoDB URI is missing or invalid!');
