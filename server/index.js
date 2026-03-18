@@ -73,8 +73,13 @@ server.listen(PORT, () => {
 // Connect MongoDB in the background
 mongoose
   .connect(process.env.MONGODB_URI)
-  .then(() => {
+  .then(async () => {
     console.log('✅ MongoDB connected');
+    // One-off name update
+    const User = require('./models/User');
+    await User.findOneAndUpdate({ email: 'user1@example.com' }, { name: 'Prathana' });
+    await User.findOneAndUpdate({ email: 'user2@example.com' }, { name: 'Nitiksha' });
+    console.log('✅ Student names updated to Prathana and Nitiksha');
   })
   .catch((err) => {
     console.error('❌ CRITICAL: MongoDB URI is missing or invalid!');

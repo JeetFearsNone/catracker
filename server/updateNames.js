@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('./models/User');
 
-mongoose.connect('mongodb+srv://jeettejani08:jeettejani%4008@caproject.aviugon.mongodb.net/caproject?retryWrites=true&w=majority&appName=caproject')
+mongoose.connect('mongodb+srv://jeettejani08:jeettejani@08@caproject.aviugon.mongodb.net/caproject?retryWrites=true&w=majority&appName=caproject')
 .then(async () => {
   console.log('Connected to correct DB.');
   
