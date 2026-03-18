@@ -29,10 +29,7 @@ const io = new Server(server, {
 });
 
 // Middleware
-app.use(cors({
-  origin: true, // Allow all origins temporarily for troubleshooting
-  credentials: true,
-}));
+app.use(cors()); // Completely open for now to bypass errors
 app.use(express.json());
 
 // Make io available to routes
