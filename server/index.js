@@ -67,17 +67,20 @@ io.on('connection', (socket) => {
   });
 });
 
-// Connect MongoDB and start server
 const PORT = process.env.PORT || 5000;
+// Start server immediately (Render needs to see the port open)
+server.listen(PORT, () => {
+    console.log(`✅ Server ready on port ${PORT}`);
+});
+
+// Connect MongoDB in the background
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('✅ MongoDB connected');
-    server.listen(PORT, () => {
-      console.log(`✅ Server running on http://localhost:${PORT}`);
-    });
   })
   .catch((err) => {
-    console.error('❌ MongoDB connection error:', err.message);
-    process.exit(1);
+    console.error('❌ CRITICAL: MongoDB URI is missing or invalid!');
+    console.error('Check Render Environment Variables for: MONGODB_URI');
+    console.error(err.message);
   });
