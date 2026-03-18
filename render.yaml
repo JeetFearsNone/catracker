@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: catracker-api
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://jeettejani08:jeettejani%4008@caproject.aviugon.mongodb.net/caproject?retryWrites=true&w=majority&appName=caproject
+      - key: JWT_SECRET
+        value: supersecretkey_change_me_later
+      - key: NODE_ENV
+        value: production
+      - key: FRONTEND_URL
+        value: https://your-catracker.netlify.app

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #0a0508;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* stunning pink/brown ultra-premium glassmorphism */
+  .glass-panel {
+    background: rgba(40, 15, 25, 0.4);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 182, 193, 0.15);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .glass-panel-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    background: rgba(50, 20, 30, 0.5);
+    border-color: rgba(244, 143, 177, 0.3);
+    box-shadow: 
+      0 20px 50px rgba(194, 24, 91, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 14px 18px;
+    color: white;
+    transition: all 0.2s;
+    outline: none;
+  }
+  
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #f48fb1;
+    box-shadow: 0 0 0 4px rgba(244, 143, 177, 0.15);
+  }
+
+  .glass-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #e9698a, #c2185b);
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(194, 24, 91, 0.4);
+    transition: all 0.2s;
+  }
+
+  .glass-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(194, 24, 91, 0.6);
+  }
+
+  .checkbox-glass {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.2s;
+  }
+  .checkbox-glass.checked {
+    background: #e9698a;
+    border-color: #e9698a;
+    box-shadow: 0 0 12px rgba(233, 105, 138, 0.5);
+  }
+
+  /* Badge utilities */
+  .badge-glass {
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+}
