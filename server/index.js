@@ -30,7 +30,7 @@ const io = new Server(server, {
 
 // Middleware
 app.use(cors({
-  origin: allowedOrigins,
+  origin: true, // Allow all origins temporarily for troubleshooting
   credentials: true,
 }));
 app.use(express.json());
